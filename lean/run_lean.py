@@ -37,8 +37,8 @@ env["LEAN_PATH"] = ":".join(search_paths)
 args = sys.argv[1:]
 if args[:3] == ["lake", "env", "lean"]:
     args = ["lean", *args[3:]]
-if not args or args[0] not in {"lean", "lake"}:
-    raise SystemExit("Usage: python3 run_lean.py lean|lake [arguments]")
+if not args or args[0] not in {"lean", "lake", "leanchecker"}:
+    raise SystemExit("Usage: python3 run_lean.py lean|lake|leanchecker [arguments]")
 program = LEAN / "bin" / args[0]
 child = subprocess.Popen([str(program), *args[1:]], env=env, start_new_session=True)
 page_size = os.sysconf("SC_PAGE_SIZE")

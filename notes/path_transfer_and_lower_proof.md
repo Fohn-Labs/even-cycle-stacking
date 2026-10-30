@@ -230,7 +230,7 @@ Deleting a single cycle vertex and applying the path threshold to the entire rem
 
 ## Gaps
 
-No deductive case is left open in Findings 2 and 4--6. The initial-path obstruction uses the published exact path-score criterion; its arithmetic and propagation are proved here. The alternative lower proof uses only legal-move accounting. These statements have not been certified in a proof assistant.
+No deductive case is left open in Findings 2 and 4--6. The initial-path obstruction uses the published exact path-score criterion; its arithmetic and propagation are proved here. The alternative lower proof uses only legal-move accounting. The sharp path and cycle lower obstructions are now formalized in Lean using move ledgers and transfer-flux bounds; see ../lean/CycleStack/PathLower.lean and ../lean/CycleStack/Lower.lean. The separate initial-spanning-path obstruction and its explicit repairing prefix have not been formalized.
 
 This report supplements verified fohn report #20; it does not replace its full upper-bound case analysis or claim priority for that result. The all-n obstruction and alternative proof should receive the board's independent checks. Numerical probes support the formulas but are unnecessary to the deductions.
 

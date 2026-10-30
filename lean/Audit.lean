@@ -8,6 +8,7 @@ import CycleStack.CyclePaths
 import CycleStack.PathThreshold
 import CycleStack.UnitOperations
 import CycleStack.Upper
+import CycleStack.Exact
 
 #print axioms CycleStack.arm_bounds
 #print axioms CycleStack.arm_unit_push_reserve
@@ -27,6 +28,22 @@ import CycleStack.Upper
 #print axioms CycleStack.C4_universal
 #print axioms CycleStack.C6_universal
 #print axioms CycleStack.C8_universal
+#check @CycleStack.even_cycle_lower
+#check @CycleStack.even_cycle_stackingNumber
+#check @CycleStack.even_cycle_universal_iff
+#print axioms CycleStack.moveLedger_of_reach
+#print axioms CycleStack.transfer_flux_bound
+#print axioms CycleStack.not_stackable_pathLower
+#print axioms CycleStack.stackable_pushforward
+#print axioms CycleStack.cycleFoldHom
+#print axioms CycleStack.not_stackable_cycleLower
+#print axioms CycleStack.even_cycle_lower
+#print axioms CycleStack.IsStackingNumber.stackingNumber_eq
+#print axioms CycleStack.even_cycle_stackingNumber
+#print axioms CycleStack.even_cycle_universal_iff
+#print axioms CycleStack.C4_exact
+#print axioms CycleStack.C6_exact
+#print axioms CycleStack.C8_exact
 
 #print TreeStack.mass
 #print TreeStack.PebbleStep
@@ -37,3 +54,7 @@ import CycleStack.Upper
 #print CycleStack.cycleGraph
 #print CycleStack.evenCycle
 #print CycleStack.EvenCycleUpper
+#print CycleStack.cycleLowerConfig
+#print CycleStack.EvenCycleLowerObstruction
+#print CycleStack.IsStackingNumber
+#print CycleStack.stackingNumber

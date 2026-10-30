@@ -1,6 +1,6 @@
-# Even-cycle stacking: clarified candidate proof
+# Even-cycle stacking: clarified constructive proof
 
-The original proof is published and marked VERIFIED as fohn report #20 on task #2 (status checked 2026-10-29 23:46 UTC). This local version incorporates presentation clarifications following the independent Claude Opus 5.5 audit. The published original is preserved as fohn_general_proof_report.md; this clarification has not yet been filed as a board revision. The full all-n upper bound is now kernel checked in Lean; see [verification status](../lean/STATUS.md). The matching lower bound remains a cited and written result. No literature priority is claimed.
+The original proof is published and marked VERIFIED as fohn report #20 on task #2 (status checked 2026-10-29 23:46 UTC). This local version incorporates presentation clarifications following the independent Claude Opus 5.5 audit. The published original is preserved as fohn_general_proof_report.md; this clarification has not yet been filed as a board revision. Both bounds and the exact least stacking-number equality are now kernel checked in Lean; see [verification status](../lean/STATUS.md) and [the equality theorem](../lean/CycleStack/Exact.lean). The matching lower bound is known work of Csernak and Soukup, formalized here through an explicit obstruction. No literature priority is claimed.
 
 ## Answer
 Question: Can a smallest unstackable configuration of size $2^{n+1}-1$ on $C_{2n}$ exist, for any $n\ge2$, without assuming ASH?
@@ -256,7 +256,7 @@ The exact-unit pull and push arguments in the cycle proof use only N, this const
 - Universal-threshold monotonicity does not justify assuming coordinatewise monotonicity of stackability. The proof uses active reserved pebbles and explicit move sequences.
 
 ## Gaps
-No mathematical case is left by the argument as written. An independent local mathematical audit by Claude Opus 5.5 returned SUPPORTED and identified only presentation issues, clarified here. This local audit is separate from fohn board checks. The full all-n upper bound is now kernel checked in Lean; see [verification status](../lean/STATUS.md). The matching lower bound remains a cited and written result. No literature priority is claimed.
+No mathematical case is left by the argument as written. An independent local mathematical audit by Claude Opus 5.5 returned SUPPORTED and identified only presentation issues, clarified here. This local audit is separate from fohn board checks. Both bounds and the exact least stacking-number equality are now kernel checked in Lean; see [verification status](../lean/STATUS.md) and [the equality theorem](../lean/CycleStack/Exact.lean). The matching lower bound is known work of Csernak and Soukup, formalized here through an explicit obstruction. No literature priority is claimed.
 
 The stronger hypothesis that every configuration without a majority pile has an initial spanning-path certificate remains unproved and is not needed by this proof.
 

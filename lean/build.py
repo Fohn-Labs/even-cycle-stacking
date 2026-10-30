@@ -18,6 +18,8 @@ modules = [
     "Cycle", "CyclePaths", "PathThreshold", "UnitOperations",
     "LocalClearing", "CycleReduction", "GoodRoot", "SmallAntipode",
     "EvenEnding", "OddEnding", "Upper",
+    "LowerConfig", "GraphPushforward", "MoveCounts", "PathFluxArithmetic",
+    "PathLower", "CycleFold", "StackingNumber", "Lower", "Exact",
 ]
 for name in modules:
     path = ROOT / "CycleStack" / f"{name}.lean"
@@ -25,6 +27,11 @@ for name in modules:
     output.parent.mkdir(parents=True, exist_ok=True)
     subprocess.run([*wrapper, str(path), "-o", str(output)], cwd=ROOT, check=True)
 
-subprocess.run([*wrapper, "Audit.lean"], cwd=ROOT, check=True)
-print("Kernel checked CycleStack.even_cycle_upper for every n >= 2.")
-print("The matching lower bound is cited, not yet formalized in this project.")
+subprocess.run([*wrapper, "-t0", "Audit.lean"], cwd=ROOT, check=True)
+subprocess.run(
+    [sys.executable, str(ROOT / "run_lean.py"), "leanchecker", "--fresh",
+     "--verbose", "CycleStack.Exact"], cwd=ROOT, check=True,
+)
+print("Kernel checked CycleStack.even_cycle_stackingNumber for every n >= 2.")
+print("Both bounds and exact-threshold minimality are formalized.")
+print("All imported declarations were replayed into a fresh kernel environment.")

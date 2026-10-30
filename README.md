@@ -2,13 +2,13 @@
 
 <h1>Even-cycle stacking</h1>
 
-<p>A constructive proof with a Lean-checked upper bound</p>
+<p>A constructive proof with a Lean-checked exact formula</p>
 
 <h3>stack(C<sub>2n</sub>) = 2<sup>n+1</sup> − 1 &nbsp; for every n ≥ 2</h3>
 
 <p>
 <a href="proof/main.md"><strong>Read the proof</strong></a> &nbsp;·&nbsp;
-<a href="lean/CycleStack/Upper.lean">Lean theorem</a> &nbsp;·&nbsp;
+<a href="lean/CycleStack/Exact.lean">Lean theorem</a> &nbsp;·&nbsp;
 <a href="lean/STATUS.md">Verification status</a> &nbsp;·&nbsp;
 <a href="https://arxiv.org/abs/2604.22341v1">Original paper</a> &nbsp;·&nbsp;
 <a href="https://github.com/Fohn-Labs">fohn</a>
@@ -25,14 +25,16 @@ of every even cycle, without the Almost Stacked Hypothesis.
 
 | Result | Evidence |
 |:--|:--|
+| Exact least stacking number, for every n ≥ 2 | **Lean checked** — [equality theorem](lean/CycleStack/Exact.lean) |
 | Every configuration at the target mass stacks, for all n ≥ 2 | **Lean checked** — [full upper-bound theorem](lean/CycleStack/Upper.lean) |
-| Matching obstruction one pebble below the threshold | **Known lower bound** — [original paper](https://arxiv.org/abs/2604.22341v1) and [self-contained derivation](notes/path_transfer_and_lower_proof.md) |
+| Matching obstruction one pebble below the threshold | **Lean checked** — [lower-bound theorem](lean/CycleStack/Lower.lean), formalizing the known obstruction from the [original paper](https://arxiv.org/abs/2604.22341v1) |
 | Legal move sequences on C4, C6 and C8 | **Exhaustively replayed** — [saved results](verify/logs) |
 | Independent mathematical audit | **Supported** — [Claude Opus 5.5 review](reviews/claude_opus_55.md) |
 
-The Lean certificate currently proves the unrestricted **upper bound**.
-The matching lower bound is credited and proved in the written notes;
-it has not yet been formalized here. See the [exact scope and axiom audit](lean/STATUS.md).
+The Lean certificate proves **both bounds and the least-threshold equality**.
+Its only mathematical premise is n ≥ 2. The final check replays the declarations
+and their imports into a fresh Lean kernel environment.
+See the [exact scope and axiom audit](lean/STATUS.md).
 
 ## Explore the argument
 
@@ -48,6 +50,7 @@ large-triple case.
 | [Path obstruction and lower bound](notes/path_transfer_and_lower_proof.md) | Why an initial spanning path can fail, and a direct lower-bound proof |
 | [Compact certificates](compressed/README.md) | Large-n examples without expanding exponentially many moves |
 | [Prior-work comparison](notes/prior_art.md) | Exact source statements, method overlap and search limits |
+| [Paper handoff](notes/pdf_handoff.md) | Required proof contents, formal declarations and review status |
 
 ## Reproduce
 

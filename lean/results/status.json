@@ -1,7 +1,9 @@
 {
-  "scope": "all-n even-cycle upper bound",
-  "headline_theorem": "CycleStack.even_cycle_upper",
+  "scope": "all-n exact even-cycle stacking number, both bounds and least-threshold minimality",
+  "headline_theorem": "CycleStack.even_cycle_stackingNumber",
+  "statement": "forall n >= 2, stackingNumber (evenCycle n) = 2^(n+1)-1",
   "lean": "4.35.0-rc2",
+  "verified_at_utc": "2026-10-30T02:50:10.549753+00:00",
   "fresh_build_exit_code": 0,
   "modules": [
     "ArmBounds",
@@ -19,15 +21,42 @@
     "SmallAntipode",
     "EvenEnding",
     "OddEnding",
-    "Upper"
+    "Upper",
+    "LowerConfig",
+    "GraphPushforward",
+    "MoveCounts",
+    "PathFluxArithmetic",
+    "PathLower",
+    "CycleFold",
+    "StackingNumber",
+    "Lower",
+    "Exact"
   ],
-  "unique_audited_declarations": 40,
+  "unique_audited_declarations": 65,
   "only_standard_axioms": [
     "propext",
     "Classical.choice",
     "Quot.sound"
   ],
-  "lower_bound_formalized": false,
+  "lower_bound_formalized": true,
+  "least_threshold_formalized": true,
+  "fresh_kernel_replay": {
+    "command": "python3 run_lean.py leanchecker --fresh --verbose CycleStack.Exact",
+    "exit_code": 0,
+    "implementation": "Lean own kernel, fresh empty environment",
+    "process_tree_peak_rss_bytes": 1923608576
+  },
+  "build_process_tree_max_sampled_rss_bytes": 2090913792,
+  "process_tree_rss_limit_bytes": 2250000000,
+  "certificate_files_sha256": {
+    "CycleStack/Exact.lean": "847cea04fe6905d8aaa22f4cf642068a9d224675365391a6a080c18c14d2b664",
+    "CycleStack/Upper.lean": "b87838cba26efd6db24bb41b37821864b234a53d9fc6afa89997841ae43b2218",
+    "CycleStack/Lower.lean": "64e73f4a3a7cd7b1f0cdc69b98b8ae18356cbf5ce5ee324c2186b8687b5e49c9",
+    "CycleStack/PathLower.lean": "b0fd9a549b75047ea90210163b99cdc2b08df532b89055ea6203c9a584f85382",
+    "Audit.lean": "7f881858793eb43bf612548605e4b0a970bd6ac23b1f06373cc0740f3fe036fe",
+    "results/build.log": "497000043b0374c39e0d5dba10417422f855b0683322e819942101dcfe33e74e",
+    "results/audit.txt": "2ca192f28b8ecc19b1cb44dd552d72776ff2890da79a4eac24507ebbafb10a6e"
+  },
   "finite_C6_reproduction": {
     "configurations": 15504,
     "individual_legal_moves": 146814,

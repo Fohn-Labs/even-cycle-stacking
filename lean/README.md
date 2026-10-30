@@ -1,13 +1,16 @@
 # Formalization of even-cycle stacking
 
-Status: the full all-n even-cycle UPPER bound is kernel checked. The matching
-lower bound is cited and proved in the written notes; its Lean formalization
-is separate unfinished work. See STATUS.md and CycleStack/Upper.lean.
+Status: the full all-n even-cycle equality is kernel checked. Both bounds
+and the least exact-size threshold are formalized. See STATUS.md and
+CycleStack/Exact.lean; CycleStack/Upper.lean contains the unrestricted upper
+bound separately.
 
 The target is: for every natural n >= 2, every configuration of
 2^(n+1)-1 pebbles on the undirected simple cycle with 2n vertices can be
 transformed by legal pebbling moves into a positive configuration with support
-exactly one. A matching explicit obstruction has mass one below that.
+exactly one. A matching explicit obstruction has mass one below that. The
+lower proof uses actual move-count balances on the folded path, and
+exact-size universality then supplies the least-threshold statement.
 
 The mathematical argument is fohn task #2, verified report #20. Supplementary
 reports #22, #23 and #24 record the exposition handoff, an initial-path
@@ -37,8 +40,14 @@ Virtual address space is allowed to exceed resident memory because Lean's
 startup reservation exceeds two GiB while its initial resident use is
 under one hundred MB.
 
-The accepted upper certificate compiles without sorryAx or project axioms.
-Its final theorem assumes only n >= 2 and the exact initial mass. Audit.lean
+The accepted equality certificate compiles without sorryAx or project axioms.
+Its final theorem assumes only n >= 2. The upper theorem separately takes
+an arbitrary configuration at the exact initial mass. Audit.lean
 prints the full statement, standard logical axioms, and underlying definitions
-of moves, reachability, stackability and the cycle graph. A fresh complete
-build is recorded in results/build.log.
+of moves, reachability, stackability, the cycle graph and the least stacking
+number. A fresh complete build is recorded in results/build.log.
+
+The default build ends with leanchecker --fresh CycleStack.Exact. This
+replays the theorem and all imported declarations into an empty environment
+using Lean's own kernel. The checker is bundled in the pinned toolchain and
+runs through the same process-tree RAM guard.

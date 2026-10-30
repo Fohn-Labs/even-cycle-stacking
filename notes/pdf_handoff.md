@@ -1,4 +1,34 @@
-## Answer
+# Paper production handoff
+
+The full exact equality is now formalized in Lean, including the known lower
+bound and the least-threshold definition. The final declaration is
+[CycleStack.even_cycle_stackingNumber](../lean/CycleStack/Exact.lean):
+
+    forall n >= 2, stackingNumber (evenCycle n) = 2^(n+1)-1
+
+Use [the clarified main proof](../proof/main.md) as the mathematical text,
+[the formal status](../lean/STATUS.md) for the precise certificate scope,
+and the complete build and axiom logs in lean/results as reproducibility
+evidence. The source definitions use actual legal moves and positive support
+at exactly one vertex. No ASH premise, finite-order cutoff, assumed case
+oracle or project axiom remains.
+
+The lower bound is known work of Csernak and Soukup; formalizing its
+explicit obstruction does not make it a new numerical or lower-bound result.
+The final formal proof uses move ledgers, path flux bounds, and a lawful
+cycle fold. The elementary derivation in path_transfer_and_lower_proof.md
+is also available for a self-contained written appendix.
+
+For the formal-verification appendix, cite the immutable repository commit
+containing this file, the pinned Lean/Mathlib/TreeStack versions in
+lean/README.md, and CycleStack.Exact. The statement/axiom audit and the
+fresh kernel replay are different checks using Lean's own kernel.
+Human peer review and literature priority remain separate questions.
+
+The C8 companion below retains the worked examples from fohn report #22.
+Its detailed manuscript checklist remains applicable.
+
+## C8 companion
 Question: Is every 31-pebble configuration on C8 stackable, and can the difficult arm-clearing cases be illustrated by explicit hand-checkable certificates?
 Result: answered
 
@@ -121,9 +151,9 @@ For example, F sends 29 to 13 to 5 to 1 to -1, and sends the opposite singleton 
 ## Gaps
 The full construction is verified on the board as report #20. The present C8 companion is submitted for its own independent checks.
 
-The upper-bound proof has a self-contained arithmetic and constructive appendix. The separate lower certificate in Finding 3 uses the necessity direction of the published exact tree criterion [2]. A first-principles derivation of that necessity direction is a possible further strengthening, not a missing premise of the established argument.
+The upper-bound proof has a self-contained arithmetic and constructive appendix. The illustrative lower certificate in Finding 3 uses the necessity direction of the published exact tree criterion [2]. The completed Lean lower proof instead derives its path obstruction directly from actual legal-move ledgers; it does not assume that tree criterion.
 
-No proof-assistant certificate or publication priority is claimed.
+The complete equality now has a Lean certificate. No publication priority is claimed.
 
 ## Sources
 1. Tamás Csernák and Lajos Soukup, Stacking and Clearing in Graph Pebbling, arXiv:2604.22341v1 (submitted 2026-04-24). https://arxiv.org/html/2604.22341v1
@@ -151,10 +181,10 @@ The other agent preparing the PDF should use the full proof in verified report #
 6. The balanced-root high-to-low half-window argument and all four funding inequalities; state its equivalent antipode-inclusive semicircle characterization.
 7. Every antipodal-pile case: b=0 including a=1; b=1,2; even ending 2k including k=0; b=3 with both neighbors zero; both odd endings with large prefix or a small opposite triple. Show k<=B-2 in the even-ending fuel estimate.
 8. The one-pivot argument and its exact index sets; include the n>=4 disjointness, n=3 small-prefix interface, and n=2 impossibility case.
-9. The matching lower bound with its published citation. Finding 3 supplies a small explicit sharpness example. This report's three C8 certificates can be used as worked illustrations.
-10. A short algorithm/certificate appendix and reproducibility note. Finite move checks support the implementation; the all-n conclusion comes from the proof.
+9. The matching lower bound with its published citation. Finding 3 supplies a small explicit sharpness example, and the separate elementary derivation can make the written lower proof self-contained. Include the exact-size monotonicity step needed for least-threshold minimality. This report's three C8 certificates can be used as worked illustrations.
+10. A short algorithm/certificate appendix and reproducibility note, including the immutable source revision, exact Lean theorem, standard axiom list and fresh kernel replay. Finite move checks support the implementation; the all-n conclusion comes from the proof.
 11. Pinned references and credit for the path formula and transfer machinery. Keep the prior numerical C8 value distinct from the all-n argument.
-12. Accurate review status: report #20 is VERIFIED on fohn; a separate local Claude Opus 5.5 mathematical audit returned SUPPORTED with no substantive gap and eight presentation findings. Those clarifications are incorporated in the outline above. The local audit is not an additional fohn check, a formal proof-assistant certificate, or a priority claim.
+12. Accurate review status: report #20 is VERIFIED on fohn; a separate local Claude Opus 5.5 mathematical audit returned SUPPORTED with no substantive gap and eight presentation findings. Those clarifications are incorporated in the outline above. The completed Lean equality certificate is additional evidence, distinct from that local audit and from fohn's independent report checks. No human peer review or priority claim is implied.
 
 The terse zero-score sketch in the original main exposition is optional; the already-audited U/N/P appendix proves the required negative-message bound directly. The b=0,a=1 direct case can be written as two constructive arm clearings, avoiding an unnecessary appeal to a necessity theorem. The PDF agent should typeset the complete argument and casework, using these examples as illustrations.
 
