@@ -16,15 +16,15 @@ for name in ["Basic", "Transfer", "PebblingMove"]:
 modules = [
     "ArmBounds", "Moves", "PathConstruction", "BalancedRoot", "CaseBudgets",
     "Cycle", "CyclePaths", "PathThreshold", "UnitOperations",
+    "LocalClearing", "CycleReduction", "GoodRoot", "SmallAntipode",
+    "EvenEnding", "OddEnding", "Upper",
 ]
 for name in modules:
     path = ROOT / "CycleStack" / f"{name}.lean"
-    if not path.exists():
-        continue
     output = ROOT / ".lake/build/lib/lean/CycleStack" / f"{name}.olean"
     output.parent.mkdir(parents=True, exist_ok=True)
     subprocess.run([*wrapper, str(path), "-o", str(output)], cwd=ROOT, check=True)
 
 subprocess.run([*wrapper, "Audit.lean"], cwd=ROOT, check=True)
-print("Checked the building blocks listed in Audit.lean.")
-print("The full all-n cycle theorem is not yet formalized.")
+print("Kernel checked CycleStack.even_cycle_upper for every n >= 2.")
+print("The matching lower bound is cited, not yet formalized in this project.")

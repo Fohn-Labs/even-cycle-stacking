@@ -1,110 +1,106 @@
-# Even-cycle stacking
+<div align="center">
 
-A constructive candidate proof of
+<h1>Even-cycle stacking</h1>
 
-$$
-\operatorname{stack}(C_{2n})=2^{n+1}-1,\qquad n\ge2,
-$$
+<p>A constructive proof with a Lean-checked upper bound</p>
 
-without the Almost Stacked Hypothesis, with reproducible move checkers and
-a partial Lean formalization.
+<h3>stack(C<sub>2n</sub>) = 2<sup>n+1</sup> − 1 &nbsp; for every n ≥ 2</h3>
 
-The mathematical argument is complete as written and recorded as verified
-report #20 on **fohn task #2**. A separate Claude Opus 5.5 audit found no
-substantive gap. This is an AI-assisted research draft; these checks do not
-constitute human peer review or establish priority.
+<p>
+<a href="proof/main.md"><strong>Read the proof</strong></a> &nbsp;·&nbsp;
+<a href="lean/CycleStack/Upper.lean">Lean theorem</a> &nbsp;·&nbsp;
+<a href="lean/STATUS.md">Verification status</a> &nbsp;·&nbsp;
+<a href="https://arxiv.org/abs/2604.22341v1">Original paper</a> &nbsp;·&nbsp;
+<a href="https://github.com/Fohn-Labs">fohn</a>
+</p>
 
-**The full cycle theorem has not yet been proved in Lean.** The checked
-building blocks and remaining work are listed in [lean/STATUS.md](lean/STATUS.md).
-The source-level proof, finite checks, and partial formalization have separate
-roles; a successful finite run does not prove the arbitrary-n claim.
+</div>
 
-Start with:
+A pebbling move removes two pebbles from one vertex and places one on a
+neighbour. A configuration is stackable when all surviving pebbles can be
+brought to a single vertex.
 
-- [Mathematical proof](proof/main.md).
-- [Elementary lower-bound derivation and path-transfer obstruction](notes/path_transfer_and_lower_proof.md).
-- [Primary-source comparison and credit](notes/prior_art.md).
-- [Formalization status and exact theorem list](lean/STATUS.md).
-- [Independent mathematical audit](reviews/claude_opus_55.md).
+This project gives a constructive argument for the exact stacking number
+of every even cycle, without the Almost Stacked Hypothesis.
 
-## Original papers and fohn
+| Result | Evidence |
+|:--|:--|
+| Every configuration at the target mass stacks, for all n ≥ 2 | **Lean checked** — [full upper-bound theorem](lean/CycleStack/Upper.lean) |
+| Matching obstruction one pebble below the threshold | **Known lower bound** — [original paper](https://arxiv.org/abs/2604.22341v1) and [self-contained derivation](notes/path_transfer_and_lower_proof.md) |
+| Legal move sequences on C4, C6 and C8 | **Exhaustively replayed** — [saved results](verify/logs) |
+| Independent mathematical audit | **Supported** — [Claude Opus 5.5 review](reviews/claude_opus_55.md) |
 
-This work was coordinated on **fohn task #2**, with reports #20 and #22--#24.
-The project organization is [Fohn Labs](https://github.com/Fohn-Labs).
-Canonical fohn task/report page links will be added when the public URL is
-available; the MCP connection supplies numeric IDs.
+The Lean certificate currently proves the unrestricted **upper bound**.
+The matching lower bound is credited and proved in the written notes;
+it has not yet been formalized here. See the [exact scope and axiom audit](lean/STATUS.md).
 
-The original problem and known path/cycle lower bounds are due to
-**Tamas Csernak and Lajos Soukup**:
+## Explore the argument
 
-- [Stacking and Clearing in Graph Pebbling, arXiv:2604.22341v1](https://arxiv.org/abs/2604.22341v1).
-- [The Almost Stacked Hypothesis: A Conjectural Analogue of Sjostrand's Cover Pebbling Theorem, arXiv:2610.09650v1](https://arxiv.org/abs/2610.09650v1).
+The proof selects a balanced root, clears one side of the cycle within a
+mass budget, and finishes on a path. A single pivot handles the remaining
+large-triple case.
 
-The exact branch transfer function, EMPTY distinction, and tree stackability
-criterion are existing work by **John Fairfax-Ball**:
+| Start here | Contents |
+|:--|:--|
+| [Main proof](proof/main.md) | Complete argument, including all small-cycle and parity cases |
+| [Lean source](lean/CycleStack) | Legal moves, arm bounds, root selection and the all-n theorem |
+| [Axiom audit](lean/results/audit.txt) | Dependencies of the checked declarations |
+| [Path obstruction and lower bound](notes/path_transfer_and_lower_proof.md) | Why an initial spanning path can fail, and a direct lower-bound proof |
+| [Compact certificates](compressed/README.md) | Large-n examples without expanding exponentially many moves |
+| [Prior-work comparison](notes/prior_art.md) | Exact source statements, method overlap and search limits |
 
-- [The stacking number of a tree, arXiv:2609.31811v2](https://arxiv.org/abs/2609.31811v2).
-- [TreeStack formal source](https://github.com/jfairfaxball-348/TreeStack-Structural-Certificates-for-Stacking-on-Trees), pinned to revision 4d4969703a9f0ca7a51cbe7edf0f0338cc95cafb.
-- [Related random-path message results, arXiv:2609.39633v1](https://arxiv.org/abs/2609.39633v1).
+## Reproduce
 
-The finite values for C6 and C8 were already reported in the
-[authors' pebbling repository](https://github.com/lajossoukup/pebbling).
-No discovery or priority claim is made for those values.
-
-## Reproduce the finite checks
-
-Requires Python 3 and a C++17 compiler on Linux:
+**Move-by-move verification** requires Python 3 and a C++17 compiler:
 
     python3 verify/run_cycle_verifier.py 2 1
     python3 verify/run_cycle_verifier.py 3 1
     python3 verify/run_cycle_verifier.py 4 8
-    python3 verify/run_cycle_verifier.py 10 8 10000
 
-Arguments are n, worker count, and optional sample count. Omit the final
-argument for exhaustive enumeration. The checker constructs a sequence and
-replays every move, checking adjacency, source fuel, mass loss and final
-support. It imposes a two-GiB address-space limit and CPU-time limit.
+The arguments are n and worker count. Add a final sample count for a sampled
+run. Each move is checked for adjacency, available fuel and the resulting
+configuration.
 
-Recorded runs:
+| Cycle | Configurations | Legal moves checked |
+|:--|--:|--:|
+| C4 | 120 | 440 |
+| C6 | 15,504 | 146,814 |
+| C8 | 12,620,256 | 254,809,131 |
 
-| Cycle | Configurations | Individually checked legal moves |
-|---|---:|---:|
-| C4 | 120, exhaustive | 440 |
-| C6 | 15,504, exhaustive | 146,814 |
-| C8 | 12,620,256, exhaustive | 254,809,131 |
+These finite checks support the implementation. The all-n proof is symbolic.
 
-Saved logs are in [verify/logs](verify/logs). Samples through C20 also passed.
-These are implementation checks; the all-n conclusion rests on the proof.
-
-For compact certificates whose move counts are exponentially large, see
-[compressed](compressed/README.md) and the [algorithmic note](proof/compact_certificates.md).
-
-## Reproduce the checked Lean building blocks
-
-See [lean/README.md](lean/README.md) and [lean/STATUS.md](lean/STATUS.md).
-The pinned environment uses Lean 4.35.0-rc2 and Mathlib revision
-065356127b1dc0016f66b7283ce0ce2c4055aa55.
-
-On x86-64 Linux, with Python 3.12+, git, tar, zstd and flock:
+**Lean verification** uses pinned Lean and Mathlib versions. On x86-64 Linux
+with Python 3.12+, git, tar, zstd and flock:
 
     cd lean
     python3 bootstrap.py
     python3 run_lean.py lake exe cache get
     python3 build.py
 
-The build wrapper monitors each complete process tree and stops it at
-2.25 decimal GB of resident RAM. At most four project workers are used,
-leaving headroom below the research session's ten-GB total limit.
-Kernel acceptance and axiom audits apply only to the declarations listed
-in the formalization status file, not to the unfinished cycle theorem.
+The runner monitors the full build process tree. Four workers are limited
+to a combined nine GB of resident RAM, leaving headroom under the session's
+ten-GB budget. Details are in [lean/README.md](lean/README.md).
 
-## Provenance
+## Sources and credit
 
-Developed in a Codex research session directed by the repository owner, with
-parallel mathematical and Lean workers. The local independent review used
-Claude Opus 5.5 and a separate implementation. Source credits and the
-distinction between board review, computation and kernel checking are
-preserved in the notes.
+The problem, path theorem and even-cycle lower bound are due to
+**Tamás Csernák and Lajos Soukup**:
 
-Original repository files are available under the MIT license. Downloaded
-dependencies retain their own licenses; see [THIRD_PARTY.md](THIRD_PARTY.md).
+- [Stacking and Clearing in Graph Pebbling](https://arxiv.org/abs/2604.22341v1).
+- [The Almost Stacked Hypothesis](https://arxiv.org/abs/2610.09650v1).
+- [Original computational data](https://github.com/lajossoukup/pebbling), which already reports the finite C6 and C8 values.
+
+The transfer function, EMPTY distinction and exact tree criterion are
+existing work by **John Fairfax-Ball**:
+
+- [The stacking number of a tree](https://arxiv.org/abs/2609.31811v2) and its [TreeStack formalization](https://github.com/jfairfaxball-348/TreeStack-Structural-Certificates-for-Stacking-on-Trees).
+- [Related random-path message results](https://arxiv.org/abs/2609.39633v1).
+
+Developed through **[fohn](https://github.com/Fohn-Labs), task #2**.
+The written argument is recorded as verified report #20; reports #22--#24
+contain companion results and source notes. Board verification, Lean
+checking and human peer review are distinct.
+
+This is AI-assisted research directed by the repository owner. No literature
+priority or human peer-review claim is made. Original files use the
+[MIT license](LICENSE); dependencies retain their [own licenses](THIRD_PARTY.md).

@@ -1,7 +1,8 @@
 # Formalization of even-cycle stacking
 
-Status: in progress. This project does not yet contain a kernel-checked proof
-of the full even-cycle theorem.
+Status: the full all-n even-cycle UPPER bound is kernel checked. The matching
+lower bound is cited and proved in the written notes; its Lean formalization
+is separate unfinished work. See STATUS.md and CycleStack/Upper.lean.
 
 The target is: for every natural n >= 2, every configuration of
 2^(n+1)-1 pebbles on the undirected simple cycle with 2n vertices can be
@@ -36,7 +37,8 @@ Virtual address space is allowed to exceed resident memory because Lean's
 startup reservation exceeds two GiB while its initial resident use is
 under one hundred MB.
 
-A completed certificate must compile without sorry, sorryAx, project axioms
-or a theorem stated with unproved cycle-reduction assumptions. The final
-audit must show the statement, all dependencies and standard logical axioms.
-Intermediate certificates are recorded separately from the full goal.
+The accepted upper certificate compiles without sorryAx or project axioms.
+Its final theorem assumes only n >= 2 and the exact initial mass. Audit.lean
+prints the full statement, standard logical axioms, and underlying definitions
+of moves, reachability, stackability and the cycle graph. A fresh complete
+build is recorded in results/build.log.

@@ -1,0 +1,129 @@
+Process-tree peak RSS: 1961943040 bytes
+vendor/TreeStack/TreeStack/Transfer.lean:87:5: warning: Variable name `hA` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hA
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+vendor/TreeStack/TreeStack/Transfer.lean:87:18: warning: Variable name `hB` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hB
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Process-tree peak RSS: 2035494912 bytes
+vendor/TreeStack/TreeStack/PebblingMove.lean:125:37: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [hs]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+Process-tree peak RSS: 1977122816 bytes
+Process-tree peak RSS: 2095988736 bytes
+Process-tree peak RSS: 2020798464 bytes
+Process-tree peak RSS: 2062594048 bytes
+'CycleStack.exists_balanced_root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CycleStack.balanced_endings' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CycleStack.pivot_triple_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CycleStack.pivot_antipode_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+Process-tree peak RSS: 1976320000 bytes
+CycleStack/CaseBudgets.lean:21:5: warning: Variable name `hB` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hB
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+CycleStack/CaseBudgets.lean:40:5: warning: Variable name `hB` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hB
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'CycleStack.even_ending_negative_budget' depends on axioms: [propext, Quot.sound]
+'CycleStack.odd_ending_large_prefix_budget' depends on axioms: [propext, Quot.sound]
+'CycleStack.odd_ending_small_prefix_budget' depends on axioms: [propext, Quot.sound]
+'CycleStack.odd_ending_small_source_funding' depends on axioms: [propext, Quot.sound]
+Process-tree peak RSS: 1056194560 bytes
+'CycleStack.two_mul_add_two_le_power' depends on axioms: [propext, Quot.sound]
+'CycleStack.card_lt_cycleThreshold' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CycleStack.cycleGraph_adj_next' depends on axioms: [propext, Quot.sound]
+Process-tree peak RSS: 1969238016 bytes
+'CycleStack.clockwiseArc_nodup' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CycleStack.counterclockwiseArc_nodup' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CycleStack.clockwiseArm_isChain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CycleStack.counterclockwiseArm_isChain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CycleStack.clockwiseArc_full_mass' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CycleStack.counterclockwiseArc_full_mass' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CycleStack.openArms_mass' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CycleStack.openArms_cover' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CycleStack.openArms_disjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+Process-tree peak RSS: 2026459136 bytes
+Process-tree peak RSS: 2051039232 bytes
+Process-tree peak RSS: 2050310144 bytes
+Process-tree peak RSS: 2050138112 bytes
+'CycleStack.clockwise_push_pathArm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CycleStack.counterclockwise_push_pathArm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CycleStack.stackable_of_cleared_clockwise' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CycleStack.stackable_of_cleared_counterclockwise' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CycleStack.stackable_of_reach_cleared_clockwise' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CycleStack.stackable_of_reach_cleared_counterclockwise' depends on axioms: [propext, Classical.choice, Quot.sound]
+Process-tree peak RSS: 2063253504 bytes
+Process-tree peak RSS: 1993773056 bytes
+Process-tree peak RSS: 2152894464 bytes
+Process-tree peak RSS: 2152423424 bytes
+'CycleStack.clear_odd_ending' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CycleStack.stackable_of_odd_ending' depends on axioms: [propext, Classical.choice, Quot.sound]
+Process-tree peak RSS: 2105454592 bytes
+@even_cycle_stackable : ∀ {n : ℕ},
+  2 ≤ n → ∀ (C : Configuration (Fin (2 * n))), mass C = 2 ^ (n + 1) - 1 → Stackable (evenCycle n) C
+@even_cycle_upper : ∀ {n : ℕ}, 2 ≤ n → EvenCycleUpper n
+'CycleStack.even_cycle_stackable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CycleStack.even_cycle_upper' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CycleStack.C6_universal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CycleStack.C8_universal' depends on axioms: [propext, Classical.choice, Quot.sound]
+Process-tree peak RSS: 2049363968 bytes
+'CycleStack.arm_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CycleStack.arm_unit_push_reserve' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CycleStack.reach_add' depends on axioms: [propext, Quot.sound]
+'CycleStack.path_boundary_attainment' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CycleStack.exists_balanced_root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CycleStack.balanced_endings' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CycleStack.pivot_triple_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CycleStack.odd_ending_small_prefix_budget' depends on axioms: [propext, Quot.sound]
+'CycleStack.stackable_of_path_mass' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CycleStack.unit_pull_reserve' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CycleStack.unit_push_reserve' depends on axioms: [propext, Classical.choice, Quot.sound]
+@CycleStack.even_cycle_stackable : ∀ {n : ℕ},
+  2 ≤ n →
+    ∀ (C : TreeStack.Configuration (Fin (2 * n))),
+      TreeStack.mass C = 2 ^ (n + 1) - 1 → TreeStack.Stackable (CycleStack.evenCycle n) C
+@CycleStack.even_cycle_upper : ∀ {n : ℕ}, 2 ≤ n → CycleStack.EvenCycleUpper n
+'CycleStack.even_cycle_stackable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CycleStack.even_cycle_upper' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CycleStack.C4_universal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CycleStack.C6_universal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CycleStack.C8_universal' depends on axioms: [propext, Classical.choice, Quot.sound]
+def TreeStack.mass.{u_1} : {V : Type u_1} → [Fintype V] → TreeStack.Configuration V → ℕ :=
+fun {V} [Fintype V] C => ∑ v, C v
+def TreeStack.PebbleStep.{u_1} : {V : Type u_1} →
+  [DecidableEq V] → SimpleGraph V → TreeStack.Configuration V → TreeStack.Configuration V → Prop :=
+fun {V} [DecidableEq V] G C D => ∃ u v, G.Adj u v ∧ 2 ≤ C u ∧ D = TreeStack.move C u v
+def TreeStack.Reach.{u_1} : {V : Type u_1} →
+  [DecidableEq V] → SimpleGraph V → TreeStack.Configuration V → TreeStack.Configuration V → Prop :=
+fun {V} [DecidableEq V] G C D => Relation.ReflTransGen (TreeStack.PebbleStep G) C D
+def TreeStack.StackedAt.{u_1} : {V : Type u_1} → TreeStack.Configuration V → V → Prop :=
+fun {V} C r => 0 < C r ∧ ∀ (v : V), v ≠ r → C v = 0
+def TreeStack.StackableAt.{u_1} : {V : Type u_1} →
+  [DecidableEq V] → SimpleGraph V → TreeStack.Configuration V → V → Prop :=
+fun {V} [DecidableEq V] G C r => ∃ D, TreeStack.Reach G C D ∧ TreeStack.StackedAt D r
+def TreeStack.Stackable.{u_1} : {V : Type u_1} → [DecidableEq V] → SimpleGraph V → TreeStack.Configuration V → Prop :=
+fun {V} [DecidableEq V] G C => ∃ r, TreeStack.StackableAt G C r
+def CycleStack.cycleGraph : (N : ℕ) → SimpleGraph (Fin N) :=
+fun N => { Adj := fun u v => u ≠ v ∧ ((↑u + 1) % N = ↑v ∨ (↑v + 1) % N = ↑u), symm := ⋯, loopless := ⋯ }
+def CycleStack.evenCycle : (n : ℕ) → SimpleGraph (Fin (2 * n)) :=
+fun n => CycleStack.cycleGraph (2 * n)
+def CycleStack.EvenCycleUpper : ℕ → Prop :=
+fun n => TreeStack.UniversalStackable (CycleStack.evenCycle n) (CycleStack.cycleThreshold n)
+Process-tree peak RSS: 2037878784 bytes
+Kernel checked CycleStack.even_cycle_upper for every n >= 2.
+The matching lower bound is cited, not yet formalized in this project.

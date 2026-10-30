@@ -38,7 +38,7 @@ Its proof uses prefix dissipation, and Lemma 3.2 gives the low-phase deficit ide
 
 Csernak--Soukup's directed paper, Theorem 3.3, proves
 $$
- \operatorname{stack}(\overrightarrow{C}_k)=k(2^{k-1}-1)+1.
+ \mathrm{stack}(\overrightarrow{C}_k)=k(2^{k-1}-1)+1.
 $$
 Its moves are restricted to the cyclic orientation [5]. Each such move is legal on the underlying undirected cycle, so it implies an undirected upper bound
 $$

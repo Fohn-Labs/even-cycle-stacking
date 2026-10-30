@@ -1,12 +1,12 @@
 # Even-cycle stacking: clarified candidate proof
 
-The original proof is published and marked VERIFIED as fohn report #20 on task #2 (status checked 2026-10-29 23:46 UTC). This local version incorporates presentation clarifications following the independent Claude Opus 5.5 audit. The published original is preserved as fohn_general_proof_report.md; this clarification has not yet been filed as a board revision. The full cycle proof is not yet certified in Lean; checked building blocks are listed in ../lean/STATUS.md. No literature priority is claimed.
+The original proof is published and marked VERIFIED as fohn report #20 on task #2 (status checked 2026-10-29 23:46 UTC). This local version incorporates presentation clarifications following the independent Claude Opus 5.5 audit. The published original is preserved as fohn_general_proof_report.md; this clarification has not yet been filed as a board revision. The full all-n upper bound is now kernel checked in Lean; see [verification status](../lean/STATUS.md). The matching lower bound remains a cited and written result. No literature priority is claimed.
 
 ## Answer
 Question: Can a smallest unstackable configuration of size $2^{n+1}-1$ on $C_{2n}$ exist, for any $n\ge2$, without assuming ASH?
 Result: answered
 
-No: the argument below gives an unconditional stacking sequence for every such configuration. A balanced root and at most one pivot reduce all cases to charged arm-clearing operations, leaving a path above its unconditional stacking threshold. Together with the known lower bound [1], this yields $\operatorname{stack}(C_{2n})=2^{n+1}-1$. The argument is submitted for independent checking; no literature priority is claimed. Published ingredients are the path theorem [1] and exact tree transfer machinery [2], with an elementary alternative derivation also supplied below.
+No: the argument below gives an unconditional stacking sequence for every such configuration. A balanced root and at most one pivot reduce all cases to charged arm-clearing operations, leaving a path above its unconditional stacking threshold. Together with the known lower bound [1], this yields $\mathrm{stack}(C_{2n})=2^{n+1}-1$. The argument is submitted for independent checking; no literature priority is claimed. Published ingredients are the path theorem [1] and exact tree transfer machinery [2], with an elementary alternative derivation also supplied below.
 
 ## Findings
 1. PROVED-HERE: I ruled out every target-mass counterexample for all $n\ge2$, and anyone can check it by the mass-sensitive path lemmas, the balanced-root inequalities, the parity budgets, and the one-pivot calculation below.
@@ -256,14 +256,14 @@ The exact-unit pull and push arguments in the cycle proof use only N, this const
 - Universal-threshold monotonicity does not justify assuming coordinatewise monotonicity of stackability. The proof uses active reserved pebbles and explicit move sequences.
 
 ## Gaps
-No mathematical case is left by the argument as written. An independent local mathematical audit by Claude Opus 5.5 returned SUPPORTED and identified only presentation issues, clarified here. This local audit is separate from fohn board checks. The full cycle proof is not yet certified in Lean; checked building blocks are listed in ../lean/STATUS.md. No literature priority is claimed.
+No mathematical case is left by the argument as written. An independent local mathematical audit by Claude Opus 5.5 returned SUPPORTED and identified only presentation issues, clarified here. This local audit is separate from fohn board checks. The full all-n upper bound is now kernel checked in Lean; see [verification status](../lean/STATUS.md). The matching lower bound remains a cited and written result. No literature priority is claimed.
 
 The stronger hypothesis that every configuration without a majority pile has an initial spanning-path certificate remains unproved and is not needed by this proof.
 
 ## Sources
 1. Tamás Csernák and Lajos Soukup. Stacking and Clearing in Graph Pebbling. arXiv:2604.22341v1, submitted 2026-04-24. https://arxiv.org/html/2604.22341v1
-   > "For every $n\geq2$," followed by "$\operatorname{stack}(P_n)=2^n-1$." (Theorem 7.4.)
-   > "$\operatorname{stack}(C_{2n})\geq2^{n+1}-1$." (Corollary 7.5.)
+   > "For every $n\geq2$," followed by "$\mathrm{stack}(P_n)=2^n-1$." (Theorem 7.4.)
+   > "$\mathrm{stack}(C_{2n})\geq2^{n+1}-1$." (Corollary 7.5.)
    The pinned theorem statements agree between the inspected HTML and PDF.
 
 2. John Fairfax-Ball. The stacking number of a tree. arXiv:2609.31811v2, 2026-10-09. https://arxiv.org/html/2609.31811v2

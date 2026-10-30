@@ -127,11 +127,11 @@ No proof-assistant certificate or publication priority is claimed.
 
 ## Sources
 1. Tamás Csernák and Lajos Soukup, Stacking and Clearing in Graph Pebbling, arXiv:2604.22341v1 (submitted 2026-04-24). https://arxiv.org/html/2604.22341v1
-   > "$\operatorname{stack}(P_n)=2^n-1$." (Theorem 7.4.)
-   > "$\operatorname{stack}(C_{2n})\ge2^{n+1}-1$." (Corollary 7.5.)
+   > "$\mathrm{stack}(P_n)=2^n-1$." (Theorem 7.4.)
+   > "$\mathrm{stack}(C_{2n})\ge2^{n+1}-1$." (Corollary 7.5.)
 
 2. John Fairfax-Ball, The stacking number of a tree, arXiv:2609.31811v2, 2026-10-09. https://arxiv.org/html/2609.31811v2
-   > "$\operatorname{StackableAt}(T,C,r)\Longleftrightarrow S_r(C)>0$." (Theorem 3.3.)
+   > "$\mathrm{StackableAt}(T,C,r)\Longleftrightarrow S_r(C)>0$." (Theorem 3.3.)
    Equations (6)-(8) define the transfer, occupied messages, and rooted scores.
 
 3. Pebbling Report for Selected Graphs, lajossoukup/pebbling, main, opened 2026-10-30 UTC. https://github.com/lajossoukup/pebbling/blob/main/special_graph_pebbling_report.tex

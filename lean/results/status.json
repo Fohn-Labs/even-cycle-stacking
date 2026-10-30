@@ -1,8 +1,33 @@
 {
-  "scope": "partial formalization; full cycle theorem unfinished",
+  "scope": "all-n even-cycle upper bound",
+  "headline_theorem": "CycleStack.even_cycle_upper",
   "lean": "4.35.0-rc2",
-  "snapshot_build_exit_code": 0,
-  "axiom_audit_declarations": 31,
+  "fresh_build_exit_code": 0,
+  "modules": [
+    "ArmBounds",
+    "Moves",
+    "PathConstruction",
+    "BalancedRoot",
+    "CaseBudgets",
+    "Cycle",
+    "CyclePaths",
+    "PathThreshold",
+    "UnitOperations",
+    "LocalClearing",
+    "CycleReduction",
+    "GoodRoot",
+    "SmallAntipode",
+    "EvenEnding",
+    "OddEnding",
+    "Upper"
+  ],
+  "unique_audited_declarations": 40,
+  "only_standard_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "lower_bound_formalized": false,
   "finite_C6_reproduction": {
     "configurations": 15504,
     "individual_legal_moves": 146814,
