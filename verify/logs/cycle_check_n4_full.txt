@@ -1,0 +1,15 @@
+n 4
+mode exhaustive
+configurations 12620256
+expected 12620256
+individual_legal_moves 254809131
+pivoted 348840
+branch_b0_a1_direct 79968
+branch_b0_pull 4192608
+branch_b1_push 2968064
+branch_b2_pull 2013760
+branch_b3_donate 66248
+branch_even_end 2684664
+branch_odd_large_prefix 435199
+branch_odd_small_triple 179745
+PASS: every generated configuration reached one occupied vertex using checked legal moves.

@@ -1,0 +1,10 @@
+verify/verify_cycle
+**/__pycache__/
+lean/.lake/
+lean/.cache/
+lean/toolchain/
+lean/vendor/
+lean/logs/
+*.olean
+*.ilean
+verify/cycle_check_n*.txt

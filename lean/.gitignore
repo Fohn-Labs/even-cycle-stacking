@@ -1,0 +1,8 @@
+/.lake/
+/.cache/
+/toolchain/
+/vendor/
+/logs/
+*.olean
+*.ilean
+*.c

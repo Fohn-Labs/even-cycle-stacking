@@ -1,0 +1,12 @@
+n 2
+mode exhaustive
+configurations 120
+expected 120
+individual_legal_moves 440
+pivoted 0
+branch_b0_a1_direct 4
+branch_b0_pull 60
+branch_b1_push 36
+branch_b2_pull 16
+branch_b3_donate 4
+PASS: every generated configuration reached one occupied vertex using checked legal moves.

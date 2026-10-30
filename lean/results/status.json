@@ -1,0 +1,11 @@
+{
+  "scope": "partial formalization; full cycle theorem unfinished",
+  "lean": "4.35.0-rc2",
+  "snapshot_build_exit_code": 0,
+  "axiom_audit_declarations": 31,
+  "finite_C6_reproduction": {
+    "configurations": 15504,
+    "individual_legal_moves": 146814,
+    "passed": true
+  }
+}
